@@ -84,16 +84,17 @@ class Setting extends React.Component {
             active: false,
             key: props.themeColor.key
         }
+        console.log(props)
     };
     setClick() {
         this.setState({
             active: !this.state.active
         })
-    };
+    }
     // 是否固定头部
     onTopChange(checked) {
         this.props.totop(checked);
-        storage.set('fixedHead',!checked);
+        storage.set('fixedHead',checked);
     };
     // 是否折叠导航
     onColnavChange(checked) {
@@ -115,7 +116,7 @@ class Setting extends React.Component {
     render() {
         return (
             <div className={ this.state.active? 'settings active': 'settings'}>
-                <Tooltip placement="left" defaultVisible={true} title="设置">
+                <Tooltip placement="left" defaultVisible={false} title="设置">
                     <div className="setIcon" onClick={this.setClick.bind(this)}>
                         <Icon className="setting" type="setting" />
                     </div>

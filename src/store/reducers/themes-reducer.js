@@ -2,11 +2,12 @@ import  { TOGGLE_COLLAPSED, TOGGLE_THEMECOLOR, TOGGLE_FIXEDHEAD, TOGGLE_ISBOX } 
 import { storage } from '../../utils/storage'
 
 const initialState = {
-    collapsed: storage.get('collapsed') ? storage.get('collapsed') : false,
-    themeColor: storage.get('themeColor') ? storage.get('themeColor') : {bgLogo: 'bg-white',bgHead: 'bg-white',bgSlider: 'bg-black'},
-    fixedHead: storage.get('fixedHead') ? storage.get('fixedHead') : true,
-    isBox: storage.get('isBox') ? storage.get('isBox') : false,
+    collapsed: storage.get('collapsed')!==null ? storage.get('collapsed') : false,
+    themeColor: storage.get('themeColor')!==null ? storage.get('themeColor') : {bgLogo: 'bg-white',bgHead: 'bg-white',bgSlider: 'bg-black'},
+    fixedHead: storage.get('fixedHead')!==null ? storage.get('fixedHead') : true,
+    isBox: storage.get('isBox')!==null ? storage.get('isBox') : false,
 }
+console.log(initialState)
 export default function(state=initialState, action) {
   switch (action.type) {
     case TOGGLE_COLLAPSED: {

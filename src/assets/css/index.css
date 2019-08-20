@@ -12,6 +12,9 @@
 .app_w1300 .fixedHead.fixedCol{
     width: 1220px;
 }
+.app_w1300 .Main-wrap .left_slider{
+    left: auto;
+}
 .header{
     width: 100%;
     line-height: 64px;
@@ -29,6 +32,24 @@
 }
 .fixedHead+.main_wrap{
    margin: 80px 15px 15px 15px;
+}
+.Main-wrap .left_slider{
+    height: 100%;
+    position: fixed;
+    z-index: 9;
+    overflow-y: auto;
+    overflow-x: hidden; 
+    left: 0;
+    top: 0;
+}
+.main_wrap{
+    overflow-y: auto; 
+}
+.main.pl80{
+    padding-left: 80px;
+}
+.main.pl200{
+    padding-left: 200px;
 }
 .header .trigger, .header .poweroff{
     font-size: 18px;

@@ -1,15 +1,18 @@
 import React from 'react';
 import {connect} from "react-redux";
-import { Layout, Icon, BackTop, Modal} from 'antd';
+import { Layout, Icon, Modal} from 'antd';
 import { toggleCollapsed } from '../store/actions/themes-actions'
+import {storage} from '../utils/storage';
 const { confirm } = Modal;
 const { Header } = Layout;
+
 class Head extends React.Component {
-    constructor(props) {
-        super(props);
-    };
+    // constructor(props) {
+    //     super(props);
+    // };
     trigger() {
         this.props.trigger(!this.props.collapsed);
+        storage.set('collapsed',!this.props.collapsed);
     };
     signOutClick(){
         confirm({
@@ -26,7 +29,6 @@ class Head extends React.Component {
     render() {
         return (
             <Header className={`${this.props.fixedHead?'fixedHead': ''} ${this.props.collapsed?'fixedCol': ''} ${this.props.themeColor.bgHead}`}>
-                <BackTop />
                 <div className="header clearfix">
                     <div className="fl">
                         <Icon
