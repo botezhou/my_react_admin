@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
+import {withRouter} from 'react-router-dom'
 import { Layout, Icon, Modal} from 'antd';
 import { toggleCollapsed } from '../store/actions/themes-actions'
 import {storage} from '../utils/storage';
@@ -12,13 +13,13 @@ class Head extends React.Component {
         storage.set('collapsed',!this.props.collapsed);
     };
     signOutClick(){
+        const _this = this;
         confirm({
             title: '确定要退出后台系统?',
             content: '成功退出后将返回登录页',
-            onOk() {
-              return new Promise((resolve, reject) => {
-                setTimeout(Math.random() > 0.5 ? resolve : reject, 1000);
-              }).catch(() => console.log('Oops errors!'));
+            onOk(){
+                console.log(_this.props)
+                _this.props.history.push('/login');
             },
             onCancel() {},
         });
@@ -56,4 +57,4 @@ const mapDispatchToProps = (dispatch) => {
         }
     }
  };
-export default connect(mapStateToProps,mapDispatchToProps)(Head);
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Head));

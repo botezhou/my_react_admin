@@ -15,11 +15,11 @@ class App extends React.Component {
         <div className={this.props.isBox? 'app_w1300': 'App'}>
           <Setting />
           <BackTop />
-          <div className="Main-wrap">
+          <div className="layout_wrap">
               <div className={`left_slider ${this.props.themeColor.bgSlider}`}><SideNav /></div>
               <div className={`main ${this.props.collapsed ? 'pl80':'pl200'}`}>
                 <Header />
-                <div className="main_wrap">
+                <div className="content_wrap">
                     <Breadcrumb {...this.props} />
                     <RouteIndex auth={auth} />
                 </div>
