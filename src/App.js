@@ -1,25 +1,27 @@
 import React from 'react';
 import {connect} from "react-redux";
+import { withRouter } from 'react-router-dom'
 import { BackTop } from 'antd';
-import '../assets/css/base.css';
-import '../assets/css/scrollbar.css';
-import '../assets/css/index.css';
-import Header from './app-header';
-import Slider from './app-slider';
-import Setting from '../components/Setting';
-import RouterList from "../router/index";
+import './styles/index.less';
+import Header from './layout/Header';
+import SideNav from './layout/SideNav';
+import Setting from './components/Setting';
+import Breadcrumb from './components/Breadcrumb';
+import RouteIndex from "./routes";
 class App extends React.Component {
   render() {
+    const { auth = { data: {} } } = this.props;
       return (
         <div className={this.props.isBox? 'app_w1300': 'App'}>
           <Setting />
           <BackTop />
           <div className="Main-wrap">
-              <div className={`left_slider ${this.props.themeColor.bgSlider}`}><Slider /></div>
+              <div className={`left_slider ${this.props.themeColor.bgSlider}`}><SideNav /></div>
               <div className={`main ${this.props.collapsed ? 'pl80':'pl200'}`}>
                 <Header />
                 <div className="main_wrap">
-                    <RouterList />
+                    <Breadcrumb {...this.props} />
+                    <RouteIndex auth={auth} />
                 </div>
               </div>
           </div>
@@ -35,4 +37,4 @@ const mapStateToProps = (state)=> {
       collapsed:state.themes.collapsed
   }
 };
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));

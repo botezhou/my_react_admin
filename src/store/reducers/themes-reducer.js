@@ -7,7 +7,6 @@ const initialState = {
     fixedHead: storage.get('fixedHead')!==null ? storage.get('fixedHead') : true,
     isBox: storage.get('isBox')!==null ? storage.get('isBox') : false,
 }
-console.log(initialState)
 export default function(state=initialState, action) {
   switch (action.type) {
     case TOGGLE_COLLAPSED: {

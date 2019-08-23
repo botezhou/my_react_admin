@@ -6,12 +6,12 @@ import {storage} from '../../utils/storage';
 const bgArr = [
     {
         bgLogo: 'bg-black',
-        bgHead: 'bg-white',
+        bgHead: 'bg-white-only',
         bgSlider: 'bg-black',
         key: 0
     },
     {
-        bgLogo: 'bg-black',
+        bgLogo: 'bg-white-only',
         bgHead: 'bg-black',
         bgSlider: 'bg-black',
         key: 1
@@ -84,7 +84,6 @@ class Setting extends React.Component {
             active: false,
             key: props.themeColor.key
         }
-        console.log(props)
     };
     setClick() {
         this.setState({

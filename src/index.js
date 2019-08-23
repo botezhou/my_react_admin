@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './layouts/app';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
 import {BrowserRouter} from "react-router-dom";
 // 引入创建好的store实例
 import store from './store'
+import Page from './Page';
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <App />
+            <Page />
         </BrowserRouter>
     </Provider>,
     document.getElementById('root')

@@ -7,9 +7,6 @@ const { confirm } = Modal;
 const { Header } = Layout;
 
 class Head extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    // };
     trigger() {
         this.props.trigger(!this.props.collapsed);
         storage.set('collapsed',!this.props.collapsed);
@@ -30,14 +27,14 @@ class Head extends React.Component {
         return (
             <Header className={`${this.props.fixedHead?'fixedHead': ''} ${this.props.collapsed?'fixedCol': ''} ${this.props.themeColor.bgHead}`}>
                 <div className="header clearfix">
-                    <div className="fl">
+                    <div className="fl slider_collapsed">
                         <Icon
                         className="trigger"
                         type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}
                         onClick={this.trigger.bind(this)}
                         />
                     </div>
-                    <div className="fr">
+                    <div className="fr head_right">
                        <Icon onClick={this.signOutClick.bind(this)} type="poweroff" className="poweroff" />
                     </div>
                 </div>
